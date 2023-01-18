@@ -6,3 +6,19 @@
 20230118	09:55:51	299e2d84-d009-4b68-8989-05d18520e10a	/new-page	GET
 20230118	09:55:51	db624ebd-865e-41c5-9604-6b1606d901de	/css/style.css	GET
 20230118	09:55:51	1fdaa606-5a17-46e4-b6f1-fe67e4638975	/img/img1.jpg	GET
+20230118	11:12:09	161ec0fd-1636-40d6-8dfd-982e57582a97	GET	undefined	/
+20230118	11:12:09	f843d438-2561-4b14-accf-e6962494405a	GET	undefined	/css/style.css
+20230118	11:14:25	da6816bf-ff7f-4496-b9f7-727fb548c3ac	GET	undefined	/
+20230118	11:14:25	b6633c9f-fd35-44ab-86d1-11f9e98fc874	GET	undefined	/css/style.css
+20230118	11:27:48	c6873e99-14d4-4f43-b1da-47cb1829bf01	GET	undefined	/
+20230118	11:28:46	62280926-a2f4-4f16-8ab9-9be5f2898161	GET	undefined	/
+20230118	11:28:47	83c3f9b7-36f1-4e92-8ecc-5b5ee3a8a969	GET	undefined	/css/style.css
+20230118	11:33:42	7f811f09-a842-4653-ab63-ee279c49f780	GET	undefined	/
+20230118	11:34:24	b8cb9515-6d7e-497e-979f-98aaf00030ee	GET	undefined	/
+20230118	11:34:24	0dcf864f-9cb9-49ec-a5f7-4cdc8b540a14	GET	undefined	/css/style.css
+20230118	11:35:25	df691f0f-088d-4c6d-8e94-026d76ca5331	GET	undefined	/lindsay
+20230118	11:35:25	ba961c0e-fef0-40e5-b325-32ce774b7025	GET	undefined	/css/style.css
+20230118	11:38:21	4400e6d8-95e8-433a-a613-e83630601460	GET	undefined	/lindsay
+20230118	11:38:21	9a33fa2d-c0ac-474b-b737-4dfe458040cd	GET	undefined	/css/style.css
+20230118	11:38:35	aeb95dae-df6b-446f-b1d2-fcd2ec4a4099	GET	undefined	/
+20230118	11:38:35	aaf89a56-6d9f-4c9b-b0e0-e3192b50b96b	GET	undefined	/css/style.css
