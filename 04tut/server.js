@@ -30,49 +30,13 @@ app.use(express.urlencoded({ extended: false }))
 //built in middleware for json
 app.use(express.json())
 
-//serve static files
+//serve static files (css & imgs) to root and subdir
 app.use(express.static(path.join(__dirname, '/public')))
+app.use('/subdir', express.static(path.join(__dirname, '/public')))
 
-//  '^/$|/index.html' must begin with / and end with / OR index.html or without the .html
-app.get('^/$|/index(.html)?', (req, res) => {
-    // res.sendFile('./views/index.html', { root: __dirname })
-    res.sendFile(path.join(__dirname, 'views', 'index.html'))
-})
-
-app.get('/new-page(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'new-page.html'))
-})
-
-app.get('/old-page(.html)?', (req, res) => {
-    res.redirect(301, 'new-page.html') //sends 302 code by default
-})
-
-//Route handlers
-app.get('/hello(.html)?', (req, res, next) => {
-    console.log('Attempted to load hello.html')
-    next()
-}, (req, res) => {
-    res.send('hello world')
-})
-
-//Chaining route handlers
-const one = (req, res, next) => {
-    console.log('One')
-    next()
-}
-
-const two = (req, res, next) => {
-    console.log('Two')
-    next()
-}
-
-const three = (req, res) => {
-    console.log('Three')
-    res.send('Finished!')
-}
-
-app.get('/chain(.html)?', [one, two, three])
-
+//route for root & subdirectory
+app.use('/', require('./routes/root'))
+app.use('/subdir', require('./routes/subdir'))
 
 app.all('*', (req, res) => {
     res.status(404)
