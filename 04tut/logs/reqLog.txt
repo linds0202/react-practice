@@ -63,3 +63,5 @@
 20230119	11:53:15	9a6cf13d-d037-4896-a959-234bfdd39850	GET	undefined	/css/style.css
 20230119	11:55:23	31416810-8024-40cf-ae61-fcabe882f8c2	POST	undefined	/register
 20230119	11:55:51	a738c035-ce6c-4e4f-ba07-90c60a6f5260	POST	undefined	/register
+20230119	12:08:09	b39c2c99-724b-45d2-a1d0-0c41d1c36688	POST	undefined	/auth
+20230119	12:08:23	f74a6120-55c2-495c-8472-032c67dbdef3	POST	undefined	/auth
