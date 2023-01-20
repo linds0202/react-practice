@@ -102,3 +102,5 @@
 20230120	10:01:20	cfa33cf1-dbf9-4db4-b5e5-814106402b30	GET	undefined	/employees
 20230120	10:01:26	d444ee22-fc11-45b4-8266-8344b1c50def	POST	undefined	/auth
 20230120	10:01:35	c6218adb-a502-4fbc-9b09-6ee3d481dcd0	GET	undefined	/employees
+20230120	10:45:47	d29a3b9d-914a-4b6e-a3c1-8b43457e32cb	POST	undefined	/register
+20230120	10:48:21	a4c47947-1db7-45b8-ba84-3d1178b2edb3	POST	undefined	/register
