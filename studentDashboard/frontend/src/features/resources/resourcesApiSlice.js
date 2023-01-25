@@ -20,7 +20,7 @@ export const resourcesApiSlice = apiSlice.injectEndpoints({
                 const loadedResources = responseData.map(resource => {
                     resource.id = resource._id
                     return resource
-                });
+                })
                 return resourcesAdapter.setAll(initialState, loadedResources)
             },
             providesTags: (result, error, arg) => {
