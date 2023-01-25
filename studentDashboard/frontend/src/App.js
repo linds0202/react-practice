@@ -5,6 +5,7 @@ import Login from './features/auth/Login';
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
+import ResourcesList from './features/resources/ResourcesList'
 import UsersList from './features/users/UsersList'
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
 
           <Route path="notes">
             <Route index element={<NotesList />} />
+          </Route>
+
+          <Route path="resources">
+            <Route index element={<ResourcesList />} />
           </Route>
 
           <Route path="users">
