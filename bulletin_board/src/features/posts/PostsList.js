@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux"
 import { selectPostIds } from "./postsSlice"
 import PostsExcerpt from "./PostsExcerpt"
-import { useGetPostsQuery } from "./postsSlice"
-
+import { useGetPostsQuery } from './postsSlice'
 
 const PostsList = () => {
     const {
@@ -14,14 +13,13 @@ const PostsList = () => {
 
     const orderedPostIds = useSelector(selectPostIds)
 
-    let content
-
+    let content;
     if (isLoading) {
         content = <p>"Loading..."</p>
     } else if (isSuccess) {
         content = orderedPostIds.map(postId => <PostsExcerpt key={postId} postId={postId} />)
     } else if (isError) {
-        content = <p>{ error }</p>
+        content = <p>{error}</p>
     }
 
     return (
