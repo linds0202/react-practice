@@ -15,7 +15,6 @@ export const resourcesApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status === 200 && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 const loadedResources = responseData.map(resource => {
                     resource.id = resource._id
@@ -32,11 +31,48 @@ export const resourcesApiSlice = apiSlice.injectEndpoints({
                 } else return [{ type: 'Resource', id: 'LIST' }]
             }
         }),
+        addNewResource: builder.mutation({
+            query: initialResource => ({
+                url: '/resources',
+                method: 'POST',
+                body: {
+                    ...initialResource,
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Resource', id: 'LIST' }
+            ]
+        }),
+        updateResource: builder.mutation({
+            query: initialResource => ({
+                url: '/resources',
+                method: 'PATCH',
+                body: {
+                    ...initialResource,
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Resource', id: arg.id }
+            ]
+        }),
+        deleteResource: builder.mutation({
+            query: ({ id }) => ({
+                url: `/resources`,
+                method: 'DELETE',
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Resource', id: arg.id }
+            ]
+        }),
     }),
 })
 
 export const {
     useGetResourcesQuery,
+    useAddNewResourceMutation,
+    useUpdateResourceMutation,
+    useDeleteResourceMutation
 } = resourcesApiSlice
 
 // returns the query result object
