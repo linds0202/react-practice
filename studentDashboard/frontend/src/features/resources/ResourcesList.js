@@ -8,7 +8,7 @@ const ResourcesList = () => {
         isSuccess,
         isError,
         error
-    } = useGetResourcesQuery(undefined, {
+    } = useGetResourcesQuery('resourceList', {
         pollingInterval: 15000, //requery every 15 seconds
         refetchOnFocus: true,
         refetchOnMountOrArgChange: true

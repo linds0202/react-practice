@@ -14,6 +14,7 @@ import NewNote from './features/notes/NewNote'
 import EditRsource from './features/resources/EditRsource'
 import NewResource from './features/resources/NewResource'
 import Prefetch from './features/auth/Prefetch'
+import PersistLogin from './features/auth/PersistLogin'
 
 function App() {
   return (
@@ -22,32 +23,34 @@ function App() {
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
 
-        <Route element={<Prefetch />} >
+        <Route element={<PersistLogin />} >
+          <Route element={<Prefetch />} >
 
-          <Route path="dash" element={<DashLayout />}>
+            <Route path="dash" element={<DashLayout />}>
 
-            <Route index element={<Welcome />} />
+              <Route index element={<Welcome />} />
 
-            <Route path="users">
-              <Route index element={<UsersList />} />
-              <Route path=':id' element={<EditUser />} />
-              <Route path='new' element={<NewUserForm />} />
-            </Route>
+              <Route path="users">
+                <Route index element={<UsersList />} />
+                <Route path=':id' element={<EditUser />} />
+                <Route path='new' element={<NewUserForm />} />
+              </Route>
 
-            <Route path="notes">
-              <Route index element={<NotesList />} />
-              <Route path=':id' element={<EditNote />} />
-              <Route path='new' element={<NewNote />} />
-            </Route>
+              <Route path="notes">
+                <Route index element={<NotesList />} />
+                <Route path=':id' element={<EditNote />} />
+                <Route path='new' element={<NewNote />} />
+              </Route>
 
-            <Route path="resources">
-              <Route index element={<ResourcesList />} />
-              <Route path=':id' element={<EditRsource />} />
-              <Route path='new' element={<NewResource />} />
-            </Route>
+              <Route path="resources">
+                <Route index element={<ResourcesList />} />
+                <Route path=':id' element={<EditRsource />} />
+                <Route path='new' element={<NewResource />} />
+              </Route>
 
-          </Route>{/* End Dash */}
-          
+            </Route>{/* End Dash */}
+            
+          </Route>
         </Route>
 
       </Route>
