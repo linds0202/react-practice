@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
 import { TAGS } from "../../config/tags"
+import useAuth from "../../hooks/useAuth"
 
 const EditResourceForm = ({ resource }) => {
+
+    const { isManager, isAdmin } = useAuth()
 
     const [updateResource, {
         isLoading,
@@ -83,6 +86,19 @@ const EditResourceForm = ({ resource }) => {
 
     const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
 
+    let deleteButton = null
+    if (isManager || isAdmin) {
+        deleteButton = (
+            <button
+                className="icon-button"
+                title="Delete"
+                onClick={onDeleteResourceClicked}
+            >
+                <FontAwesomeIcon icon={faTrashCan} />
+            </button>
+        )
+    }
+
     const content = (
         <>
             <p className={errClass}>{errContent}</p>
@@ -99,13 +115,7 @@ const EditResourceForm = ({ resource }) => {
                         >
                             <FontAwesomeIcon icon={faSave} />
                         </button>
-                        <button
-                            className="icon-button"
-                            title="Delete"
-                            onClick={onDeleteResourceClicked}
-                        >
-                            <FontAwesomeIcon icon={faTrashCan} />
-                        </button>
+                        {deleteButton}
                     </div>
                 </div>
                 <label className="form__label" htmlFor="resource-name">
