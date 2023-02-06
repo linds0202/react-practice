@@ -22,19 +22,23 @@ const createNewResource = asyncHandler(async (req, res) => {
     const { name, desc, link, tags } = req.body
 
     //Check data
-    if (!name || !desc || !link || !Array.isArray(tags) || !tags.length) {
+    if (!name || !desc || !link) {
         return res.status(400).json({ message: 'All fields required' })
     }
 
     //Check for duplicate
-    const duplicate = await Resource.findOne({ name }).lean().exec()
+    const duplicate = await Resource.findOne({ name }).collation({ locale: 'en', strength: 2 }).lean().exec()
 
     if (duplicate) {
         return res.status(409).json({ message: 'Duplicate resource title' })
     }
 
     //Create & store the new resource
-    const resource = await Resource.create({ name, desc, link, tags })
+    const resourceObject = (!Array.isArray(tags) || !tags.length)
+        ? { name, desc, link }
+        : { name, desc, link, tags }
+
+    const resource = await Resource.create(resourceObject)
 
     if (resource) {
         return res.status(201).json({ message: `New resource ${name} created` })
@@ -62,7 +66,7 @@ const updateResource = asyncHandler(async (req, res) => {
     }
 
     //Check for duplicate
-    const duplicate = await Resource.findOne({ name }).lean().exec()
+    const duplicate = await Resource.findOne({ name }).collation({ locale: 'en', strength: 2 }).lean().exec()
 
     // Allow renaming of the original resource 
     if (duplicate && duplicate?._id.toString() !== id) {

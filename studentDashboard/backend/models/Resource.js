@@ -14,10 +14,10 @@ const resourceSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        tags: [{
-            type: String,
-            default: 'Online'
-        }],
+        tags: {
+            type: [String],
+            default: ['Online]'
+        },
     }
 )
 
