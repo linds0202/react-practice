@@ -1,13 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from 'react-router-dom'
-
-import { useSelector } from 'react-redux'
-import { selectResourceById } from './resourcesApiSlice'
+import { useGetResourcesQuery } from './resourcesApiSlice'
+import { memo } from 'react'
 
 const Resource = ({ resourceId }) => {
 
-    const resource = useSelector(state => selectResourceById(state, resourceId))
+    const { resource } = useGetResourcesQuery("resourcesList", {
+        selectFromResult: ({ data }) => ({
+            resource: data?.entities[resourceId]
+        }),
+    })
 
     const navigate = useNavigate()
 
@@ -37,4 +40,7 @@ const Resource = ({ resourceId }) => {
 
     } else return null
 }
-export default Resource
+
+const memoizedResource = memo(Resource)
+
+export default memoizedResource

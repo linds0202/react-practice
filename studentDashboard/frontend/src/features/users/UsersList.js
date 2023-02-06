@@ -1,7 +1,9 @@
 import { useGetUsersQuery } from "./usersApiSlice"
 import User from './User'
+import useTitle from "../../hooks/useTitle"
 
 const UsersList = () => {
+    useTitle('Student Dashboard: Users List')
 
     const {
         data: users,

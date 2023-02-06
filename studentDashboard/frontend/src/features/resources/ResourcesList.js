@@ -1,7 +1,11 @@
 import { useGetResourcesQuery } from "./resourcesApiSlice"
 import Resource from "./Resource"
+import useTitle from "../../hooks/useTitle"
 
 const ResourcesList = () => {
+
+    useTitle('Student Dashboard: Resources List')
+
     const {
         data: resources,
         isLoading,

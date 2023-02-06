@@ -11,10 +11,12 @@ const initialState = resourcesAdapter.getInitialState()
 export const resourcesApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getResources: builder.query({
-            query: () => '/resources',
-            validateStatus: (response, result) => {
-                return response.status === 200 && !result.isError
-            },
+            query: () => ({
+                url: '/resources',
+                validateStatus: (response, result) => {
+                    return response.status === 200 && !result.isError
+                },
+            }),
             transformResponse: responseData => {
                 const loadedResources = responseData.map(resource => {
                     resource.id = resource._id

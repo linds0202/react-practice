@@ -1,12 +1,11 @@
-import { useSelector } from 'react-redux'
-import { selectAllUsers } from '../users/usersApiSlice'
 import NewResourceForm from './NewResourceForm'
+import useTitle from '../../hooks/useTitle'
 
 const NewResource = () => {
 
-  const users = useSelector(selectAllUsers)
+  useTitle('Student Dashboard: New Resource')
 
-  const content = users ? <NewResourceForm /> : <p>Loading...</p>
+  const content = <NewResourceForm />
 
   return content
 }

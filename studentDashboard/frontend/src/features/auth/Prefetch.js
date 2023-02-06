@@ -8,18 +8,9 @@ import { Outlet } from 'react-router-dom'
 const Prefetch = () => {
     //only runs when component mounts because it has an empty dependency arr
     useEffect(() => {
-        console.log('subscribing')
-        //Creates manual subscription to notes and users
-        const notes = store.dispatch(notesApiSlice.endpoints.getNotes.initiate())
-        const users = store.dispatch(usersApiSlice.endpoints.getUsers.initiate())
-        const resources = store.dispatch(resourcesApiSlice.endpoints.getResources.initiate())
-
-        return () => {
-            console.log('unsubscribing')
-            notes.unsubscribe()
-            users.unsubscribe()
-            resources.unsubscribe()
-        }
+        store.dispatch(notesApiSlice.util.prefetch('getNotes', 'notesList', { force: true }))
+        store.dispatch(usersApiSlice.util.prefetch('getUsers', 'usersList', { force: true }))
+        store.dispatch(resourcesApiSlice.util.prefetch('getResources', 'resourcesList', { force: true }))
     }, [])
 
     return <Outlet />
