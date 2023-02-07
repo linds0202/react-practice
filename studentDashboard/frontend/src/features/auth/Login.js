@@ -64,12 +64,12 @@ const Login = () => {
 
     const content = (
         <section className="public">
-            <header>
-                <h1>Employee Login</h1>
-            </header>
+            {/* <header>
+                <h1>Login</h1>
+            </header> */}
             <main className="login">
                 <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
-
+                <h1 className='login__title'>Login</h1>
                 <form className="form" onSubmit={handleSubmit}>
                     <label htmlFor="username">Username:</label>
                     <input

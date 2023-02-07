@@ -1,10 +1,13 @@
 import { useGetResourcesQuery } from "./resourcesApiSlice"
 import Resource from "./Resource"
 import useTitle from "../../hooks/useTitle"
+import useAuth from "../../hooks/useAuth" 
 
 const ResourcesList = () => {
 
     useTitle('Student Dashboard: Resources List')
+
+    const { isAdmin } = useAuth()
 
     const {
         data: resources,
@@ -30,24 +33,13 @@ const ResourcesList = () => {
         const { ids } = resources
 
         const tableContent = ids?.length
-            ? ids.map(resourceId => <Resource key={resourceId} resourceId={resourceId} />)
+            ? ids.map(resourceId => <Resource key={resourceId} resourceId={resourceId} isAdmin={isAdmin}/>)
             : null
 
         content = (
-            <table className="table table--resources">
-                <thead className="table__thead">
-                    <tr>
-                        <th scope="col" className="table__th resource__title">Name</th>
-                        <th scope="col" className="table__th resource__title">Desc</th>
-                        <th scope="col" className="table__th resource__title">Link</th>
-                        <th scope="col" className="table__th resource__title">Tags</th>
-                        <th scope="col" className="table__th resource__title">Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tableContent}
-                </tbody>
-            </table>
+            <div className='resource__list'>
+                {tableContent}
+            </div>
         )
     }
 
