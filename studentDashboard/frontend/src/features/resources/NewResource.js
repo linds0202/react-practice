@@ -3,7 +3,7 @@ import useTitle from '../../hooks/useTitle'
 
 const NewResource = () => {
 
-  useTitle('Student Dashboard: New Resource')
+  useTitle('Blossom & Vine: New Resource')
 
   const content = <NewResourceForm />
 

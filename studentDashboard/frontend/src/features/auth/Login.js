@@ -9,7 +9,7 @@ import usePersist from '../../hooks/usePersist'
 import useTitle from '../../hooks/useTitle'
 
 const Login = () => {
-    useTitle('Student Login')
+    useTitle('Blossom & Vine Login')
 
     const userRef = useRef()
     const errRef = useRef()

@@ -3,7 +3,7 @@ import User from './User'
 import useTitle from "../../hooks/useTitle"
 
 const UsersList = () => {
-    useTitle('Student Dashboard: Users List')
+    useTitle('Blossom & Vine: Users List')
 
     const {
         data: users,

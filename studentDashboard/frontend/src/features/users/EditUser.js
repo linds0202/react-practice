@@ -6,7 +6,7 @@ import useTitle from '../../hooks/useTitle'
 
 
 const EditUser = () => {
-    useTitle('Student Dashboard: Edit User')
+    useTitle('Blossom & Vine: Edit User')
 
     const { id } = useParams()
 

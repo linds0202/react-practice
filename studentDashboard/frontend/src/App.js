@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Public from './components/Public'
-import Login from './features/auth/Login';
+import Login from './features/auth/Login'
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
@@ -20,7 +20,7 @@ import { ROLES } from './config/roles'
 import useTitle from './hooks/useTitle'
 
 function App() {
-  useTitle('Student Resources')
+  useTitle('Blossom & Vine')
   
   return (
     <Routes>

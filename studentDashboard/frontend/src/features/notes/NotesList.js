@@ -5,7 +5,7 @@ import useTitle from "../../hooks/useTitle"
 
 const NotesList = () => {
 
-    useTitle('Student Dashboard: Notes List')
+    useTitle('Blossom & Vine: Orders List')
 
     const { username, isManager, isAdmin } = useAuth()
 

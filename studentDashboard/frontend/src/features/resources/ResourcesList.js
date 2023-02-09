@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth"
 
 const ResourcesList = () => {
 
-    useTitle('Student Dashboard: Resources List')
+    useTitle('Blossom & Vine: Resources List')
 
     const { isAdmin } = useAuth()
 

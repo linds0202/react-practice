@@ -11,7 +11,7 @@ const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
 
 const NewUserForm = () => {
 
-    useTitle('Student Dashboard: New User')
+    useTitle('Blossom & Vine: New User')
 
     const [addNewUser, {
         isLoading,

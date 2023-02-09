@@ -8,7 +8,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 import useTitle from '../../hooks/useTitle'
 
 const EditNote = () => {
-    useTitle('Student Dashboard: Edit Note')
+    useTitle('Blossom & Vine: Edit Order')
 
     const { id } = useParams()
 

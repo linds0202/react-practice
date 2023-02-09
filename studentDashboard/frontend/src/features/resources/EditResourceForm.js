@@ -3,7 +3,6 @@ import { useUpdateResourceMutation, useDeleteResourceMutation } from "./resource
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave, faTrashCan } from "@fortawesome/free-solid-svg-icons"
-import { TAGS } from "../../config/tags"
 import useAuth from "../../hooks/useAuth"
 
 const EditResourceForm = ({ resource }) => {
@@ -28,7 +27,6 @@ const EditResourceForm = ({ resource }) => {
     const [name, setName] = useState(resource.name)
     const [desc, setDesc] = useState(resource.desc)
     const [link, setLink] = useState(resource.link)
-    const [tags, setTags] = useState(resource.tags)
 
     useEffect(() => {
 
@@ -36,7 +34,6 @@ const EditResourceForm = ({ resource }) => {
             setName('')
             setDesc('')
             setLink('')
-            setTags([])
             navigate('/dash/resources')
         }
 
@@ -45,19 +42,12 @@ const EditResourceForm = ({ resource }) => {
     const onNameChanged = e => setName(e.target.value)
     const onDescChanged = e => setDesc(e.target.value)
     const onLinkChanged = e => setLink(e.target.value)
-    const onTagsChanged = e => {
-        const values = Array.from(
-            e.target.selectedOptions,
-            (option) => option.value
-        )
-        setTags(values)
-    }
 
-    const canSave = [name, desc, link, tags.length].every(Boolean) && !isLoading
+    const canSave = [name, desc, link].every(Boolean) && !isLoading
 
     const onSaveResourceClicked = async (e) => {
         if (canSave) {
-            await updateResource({ id: resource.id, name, desc, link, tags })
+            await updateResource({ id: resource.id, name, desc, link })
         }
     }
 
@@ -65,24 +55,9 @@ const EditResourceForm = ({ resource }) => {
         await deleteResource({ id: resource.id })
     }
 
-    const created = new Date(resource.createdAt).toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })
-    const updated = new Date(resource.updatedAt).toLocaleString('en-US', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })
-
-    //create html for tags drop down menu
-    const options = Object.values(TAGS).map(tag => {
-        return (
-            <option
-                key={tag}
-                value={tag}
-
-            > {tag}</option >
-        )
-    })
-
     const errClass = (isError || isDelError) ? "errmsg" : "offscreen"
     const validTitleClass = !name || !link ? "form__input--incomplete" : ''
     const validTextClass = !desc ? "form__input--incomplete" : ''
-    const validRolesClass = !Boolean(tags.length) ? 'form__input--incomplete' : ''
 
     const errContent = (error?.data?.message || delerror?.data?.message) ?? ''
 
@@ -151,26 +126,6 @@ const EditResourceForm = ({ resource }) => {
                     value={link}
                     onChange={onLinkChanged}
                 />
-
-                <label className="form__label" htmlFor="tags">
-                    ASSIGNED TAGS:</label>
-                <select
-                    id="tags"
-                    name="tags"
-                    className={`form__select ${validRolesClass}`}
-                    multiple={true}
-                    size="3"
-                    value={tags}
-                    onChange={onTagsChanged}
-                >
-                    {options}
-                </select>
-                <div className="form__row">
-                    <div className="form__divider">
-                        <p className="form__created">Created:<br />{created}</p>
-                        <p className="form__updated">Updated:<br />{updated}</p>
-                    </div>
-                </div>
             </form>
         </>
     )

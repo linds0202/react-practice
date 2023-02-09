@@ -5,7 +5,9 @@ import {
     faFilePen,
     faUserGear,
     faUserPlus,
-    faRightFromBracket
+    faRightFromBracket,
+    faFolderPlus,
+    faFolder
 } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 
@@ -53,7 +55,7 @@ const DashHeader = () => {
         newNoteButton = (
             <button
                 className="icon-button"
-                title="New Note"
+                title="New Order"
                 onClick={onNewNoteClicked}
             >
                 <FontAwesomeIcon icon={faFileCirclePlus} />
@@ -69,7 +71,7 @@ const DashHeader = () => {
                 title="New Resource"
                 onClick={onNewResourceClicked}
             >
-                <FontAwesomeIcon icon={faFileCirclePlus} />
+                <FontAwesomeIcon icon={faFolderPlus} />
             </button>
         )
     }
@@ -107,7 +109,7 @@ const DashHeader = () => {
         notesButton = (
             <button
                 className="icon-button"
-                title="Notes"
+                title="Orders"
                 onClick={onNotesClicked}
             >
                 <FontAwesomeIcon icon={faFilePen} />
@@ -123,7 +125,7 @@ const DashHeader = () => {
                 title="Resources"
                 onClick={onResourcesClicked}
             >
-                <FontAwesomeIcon icon={faFilePen} />
+                <FontAwesomeIcon icon={faFolder} />
             </button>
         )
     }
@@ -164,7 +166,7 @@ const DashHeader = () => {
             <header className="dash-header">
                 <div className={`dash-header__container ${dashClass}`}>
                     <Link to="/dash">
-                        <h1 className="dash-header__title">techNotes</h1>
+                        <h1 className="dash-header__title">Floral & Vine</h1>
                     </Link>
                     <nav className="dash-header__nav">
                         {buttonContent}
