@@ -14,10 +14,6 @@ const resourceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tags: {
-        type: [String],
-        default: ['Online']
-    },
 })
 
 module.exports = mongoose.model('Resource', resourceSchema)
