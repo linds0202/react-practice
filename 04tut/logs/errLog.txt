@@ -1,3 +1,4 @@
 20230118	09:55:30	c419d715-325c-401e-9317-4c960a0abaab	TypeError: fsPromises.readFil is not a function
 20230118	11:33:42	4b46b09f-2145-401c-b2f9-ef158d2a923d	Error: Not allowed by CORS
 20230119	10:11:01	61d615bf-2928-4318-9877-0bf723c90ade	ReferenceError: emp is not defined
+20230302	10:12:59	a953b6e9-cdaa-44dc-b82d-a059261959cd	Error: Not allowed by CORS
